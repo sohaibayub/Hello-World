@@ -17,7 +17,7 @@ Occam currently works fine on Linux, Mac OS X, and FreeBSD. You will
 need an installation of [LLVM-3.5](http://llvm.org/docs/GettingStarted.html) and if you want to generate bitcode,
 an install of [WLLVM](https://github.com/SRI-CSL/whole-program-llvm.git "Whole Program LLVM"). OCCAM also requires [Protocol Buffers](https://github.com/google/protobuf) library.
 
-### Installation of LLVM and WLLVM on Ubuntu
+### Installation of LLVM on Ubuntu
 
 OCCAM requires all the [dependencies of LLVM](http://llvm.org/docs/GettingStarted.html#requirements). In particular, you should install the following programs and libraries, listed below as Ubuntu packages:
 ```
@@ -52,6 +52,14 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 
 **NOTE:** If you see error `"ImportError: No module named google.protobuf"` while running OCCAM, use `sudo pip install protobuf` to install protobuf. (Dependencies for pip : sudo apt-get install build-essential python-dev python-pip)
 
+### WLLVM installation 
+Add WLLVM tools to the PATH variable using:
+```
+    git clone https://github.com/travitch/whole-program-llvm wllvm
+    cd wllvm
+    export PATH=`pwd`:$PATH
+```
+
 Building and Installing
 -----------------------
 
@@ -81,4 +89,8 @@ You can choose to record logs from the OCCAM tool by setting the following varia
 ```
   export OCCAM_LOGFILE={absolute path to log location}
   export OCCAM_LOGLEVEL={INFO, WARNING, or ERROR}
+```
+To specialize the application, add a "args": ["arg1", "arg2", ...] entry to the manifest file and call the previrt tool:
+```
+   occam previrt --work-dir=$WORKDIR $MANIFEST_FILE
 ```
