@@ -25,14 +25,17 @@ sudo apt-get install build-essential vim curl bison flex bc libcap-dev git cmake
 ```
 You will need gcc/g++ 4.8 or later installed on your system.
 
-LLVM can be installed using Ubuntu apt repository as below:
+Install LLVM using the instructions from <http://llvm.org/docs/GettingStarted.html> or LLVM can be installed using Ubuntu apt repository, if available as below:
 ```
 sudo apt-get install clang-3.5 llvm-3.5 llvm-3.5-dev llvm-3.5-tools  
 ```
-
+You may then wish to add llvm path to your shell startup (e.g. '~/.bashrc'). Change the path as per installation of LLVM in your system:
+```
+  export LLVM_HOME=/usr/lib/llvm-3.5
+```
 Finally, make sure llvm-config is in your path:
 ```
-sudo ln -sf ${LLVM_HOME}/bin/llvm-config-3.5 /usr/bin/llvm-config
+sudo ln -sf /usr/bin/llvm-config-3.5 /usr/bin/llvm-config
 ```
 
 ### Installation of protobuf on Ubuntu
@@ -51,17 +54,29 @@ sudo apt-get install libprotobuf-dev protobuf-compiler
 
 Building and Installing
 -----------------------
-After all the dependencies all installed, just use below commands from home directory of OCCAM.
+
+After all the dependencies all installed, checkout the code from repository and set OCCAM_HOME variable according to your occam home directory.
+```
+   git clone https://github.com/ashish-gehani/OCCAM.git occam
+   cd occam
+   export OCCAM_HOME=`pwd`
+```
+
+If LLVM_HOME and OCCAM_HOME variables are not set in your environment, edit the Makefile and uncomment the lines exporting LLVM_HOME and OCCAM_HOME at the top of the file according to paths in your system. Now build and install the tool using below commands from your occam root directory.
 ```
 make
 make install
 ```
 
+For you ease, you can also create an alias to the 'occam' toolchain wrapper. For bash, add the following to to your shell startup:
+```
+  alias occam=$OCCAM_HOME/bin/occam
+```
+
 Using OCCAM
 -----------
 
-You can choose to record logs from the OCCAM 
-tool by setting the following variables:
+You can choose to record logs from the OCCAM tool by setting the following variables:
 
 ```
   export OCCAM_LOGFILE={absolute path to log location}
