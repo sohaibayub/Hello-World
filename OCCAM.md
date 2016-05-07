@@ -58,7 +58,6 @@ Add WLLVM tools to the PATH variable using:
     export LLVM_COMPILER=clang
     export WLLVM_OUTPUT=WARNING
 ```
-`LLVM_*` variables are set becuase they get adorned with suffixes in various Linux distributions.
 
 Building and Installing
 -----------------------
