@@ -38,13 +38,11 @@ sudo ln -sf ${LLVM_HOME}/bin/llvm-config-3.5 /usr/bin/llvm-config
 ### Installation of protobuf on Ubuntu
 
 
-OCCAM requires [Protocol Buffers](https://github.com/google/protobuf) library. 
-
-On Ubuntu, you can install its dependencies with:
+OCCAM requires [Protocol Buffers](https://github.com/google/protobuf) library.On Ubuntu, you can install its dependencies with:
 ```
 sudo apt-get install autoconf automake libtool curl make g++ unzip
 ```
-The quick way on Ubuntu to do this is:
+and the quick way on Ubuntu to do this is:
 ```
 sudo apt-get install libprotobuf-dev protobuf-compiler
 ```
