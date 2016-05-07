@@ -58,6 +58,8 @@ Add WLLVM tools to the PATH variable using:
     git clone https://github.com/travitch/whole-program-llvm wllvm
     cd wllvm
     export PATH=`pwd`:$PATH
+    export LLVM_COMPILER=clang
+    export WLLVM_OUTPUT=WARNING
 ```
 
 Building and Installing
