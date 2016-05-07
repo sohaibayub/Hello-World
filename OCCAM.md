@@ -29,13 +29,10 @@ Install LLVM using the instructions from <http://llvm.org/docs/GettingStarted.ht
 ```
 sudo apt-get install clang-3.5 llvm-3.5 llvm-3.5-dev llvm-3.5-tools  
 ```
-You may then wish to add llvm path to your shell startup (e.g. '~/.bashrc'). Change the path as per installation of LLVM in your system:
+You may then wish to add llvm path to your shell startup (e.g. '~/.bashrc'). Make sure LLVM bin folder is added to start of your path, so that llvm tools are not adorned with suffixes (e.g. llvm-config-3.5). Change the path as per installation of LLVM in your system:
 ```
   export LLVM_HOME=/usr/lib/llvm-3.5
-```
-Finally, make sure llvm-config is in your path:
-```
-sudo ln -sf /usr/bin/llvm-config-3.5 /usr/bin/llvm-config
+  export PATH=${LLVM-HOME}/bin:${PATH}
 ```
 
 ### Installation of protobuf on Ubuntu
