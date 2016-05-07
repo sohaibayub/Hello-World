@@ -44,7 +44,7 @@ sudo apt-get install autoconf automake libtool curl make g++ unzip
 ```
 and the quick way to install protobuf is:
 ```
-sudo apt-get install libprotobuf-dev protobuf-compiler
+sudo apt-get install libprotobuf-dev protobuf-compiler python-protobuf
 ```
 
 **NOTE:** If you see error `"ImportError: No module named google.protobuf"` while running OCCAM, use `sudo pip install protobuf` to install protobuf. (Dependencies for pip : sudo apt-get install build-essential python-dev python-pip)
@@ -56,10 +56,6 @@ Add WLLVM tools to the PATH variable using:
     cd wllvm
     export PATH=`pwd`:$PATH
     export LLVM_COMPILER=clang
-    export LLVM_CC_NAME=clang-3.5
-    export LLVM_CXX_NAME=clang++-3.5
-    export LLVM_LINK_NAME=llvm-link-3.5
-    export LLVM_AR_NAME=llvm-ar-3.5
     export WLLVM_OUTPUT=WARNING
 ```
 `LLVM_*` variables are set becuase they get adorned with suffixes in various Linux distributions.
